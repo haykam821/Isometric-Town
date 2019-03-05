@@ -4,19 +4,25 @@ const ctx = can.getContext("2d");
 can.width = window.innerWidth;
 can.height = window.innerHeight;
 
-const map = [
-	[0, 0, 0, 0],
-	[0, 1, 1, 1],
-	[0, 0, 2, 0],
-	[0, 0, 2, 0],
-	[0, 0, 2, 0],
-	[0, 0, 2, 0],
-].map(row => row.reverse());
+const map = `
+0000000000000
+0111111100050
+0134343105000
+0134343100050
+0111111105000
+0000000000050
+0000000005000
+0000000000050
+0000000000000
+`.trim().split("\n").map(row => row.split("").reverse());
 
 const colorMap = [
 	"green",
+	"#654321",
 	"lightgray",
-	"brown",
+  "goldenrod",
+  "darkgoldenrod",
+  "darkgreen"
 ];
 
 function drawIsoTile(x, y, width, height, color = "black") {
@@ -39,8 +45,8 @@ function drawIsoTile(x, y, width, height, color = "black") {
 const height = 20;
 const width = height * 2;
 
-let dragX = 0;
-let dragY = 0;
+let dragX = can.width / -2;
+let dragY = can.height / -2;
 
 window.addEventListener("mousemove", event => {
 	if (event.buttons === 1) {
@@ -50,7 +56,8 @@ window.addEventListener("mousemove", event => {
 })
 
 function render() {
-	ctx.clearRect(0, 0, can.width, can.height);
+	ctx.fillStyle = "forestgreen";
+	ctx.fillRect(0, 0, can.width, can.height);
 
 	ctx.save();
 	ctx.translate(-dragX, -dragY);
