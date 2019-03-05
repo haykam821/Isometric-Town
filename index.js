@@ -21,14 +21,14 @@ function drawIsoTile(x, y, width, height, color = "black") {
 	ctx.beginPath();
 	ctx.moveTo(x, y);
 
-	context.lineTo(x - width / 2, y + height / 2);
-	context.lineTo(x, y + height);
-	context.lineTo(x + width / 2, y + height / 2);
-	context.closePath();
+	ctx.lineTo(x - width / 2, y + height / 2);
+	ctx.lineTo(x, y + height);
+	ctx.lineTo(x + width / 2, y + height / 2);
+	ctx.closePath();
 
-	context.fillStyle = color;
-	context.fill();
-	context.restore();
+	ctx.fillStyle = color;
+	ctx.fill();
+	ctx.restore();
 }
 
 const width = 52;
