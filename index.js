@@ -1,6 +1,9 @@
 const can = document.getElementById("can");
 const ctx = can.getContext("2d");
 
+can.width = window.innerWidth;
+can.height = window.innerHeight;
+
 const map = [
 	[0, 0, 0, 0],
 	[0, 1, 1, 1],
@@ -8,11 +11,11 @@ const map = [
 	[0, 0, 2, 0],
 	[0, 0, 2, 0],
 	[0, 0, 2, 0],
-];
+].map(row => row.reverse());
 
 const colorMap = [
 	"green",
-	"white",
+	"lightgray",
 	"brown",
 ];
 
@@ -28,14 +31,36 @@ function drawIsoTile(x, y, width, height, color = "black") {
 
 	ctx.fillStyle = color;
 	ctx.fill();
+	ctx.strokeStyle = color;
+	ctx.stroke();
 	ctx.restore();
 }
 
-const width = 52;
-const height = 25;
+const height = 20;
+const width = height * 2;
 
-map.forEach((row, y) => {
-	row.forEach((tile, x) => {
-		drawIsoTile((y - x) * height, (y + x) * width / 2, width, height, colorMap[tile]);
-	});
-});
+let dragX = 0;
+let dragY = 0;
+
+window.addEventListener("mousemove", event => {
+	if (event.buttons === 1) {
+  	dragX -= event.movementX;
+  	dragY -= event.movementY;
+  }
+})
+
+function render() {
+	ctx.clearRect(0, 0, can.width, can.height);
+
+	ctx.save();
+	ctx.translate(-dragX, -dragY);
+  map.forEach((row, y) => {
+  	row.forEach((tile, x) => {
+      drawIsoTile((y - x) * height, (y + x) * width / 4, width, height, colorMap[tile]);
+    });
+  });
+  ctx.restore();
+  
+	requestAnimationFrame(render);
+}
+render();
