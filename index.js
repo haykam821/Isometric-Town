@@ -20,9 +20,9 @@ const colorMap = [
 	"green",
 	"#654321",
 	"lightgray",
-  "goldenrod",
-  "darkgoldenrod",
-  "darkgreen"
+	"goldenrod",
+	"darkgoldenrod",
+	"darkgreen"
 ];
 
 function drawIsoTile(x, y, width, height, color = "black") {
@@ -50,9 +50,9 @@ let dragY = can.height / -2;
 
 window.addEventListener("mousemove", event => {
 	if (event.buttons === 1) {
-  	dragX -= event.movementX;
-  	dragY -= event.movementY;
-  }
+		dragX -= event.movementX;
+		dragY -= event.movementY;
+	}
 })
 
 function render() {
@@ -61,13 +61,13 @@ function render() {
 
 	ctx.save();
 	ctx.translate(-dragX, -dragY);
-  map.forEach((row, y) => {
-  	row.forEach((tile, x) => {
-      drawIsoTile((y - x) * height, (y + x) * width / 4, width, height, colorMap[tile]);
-    });
-  });
-  ctx.restore();
-  
+	map.forEach((row, y) => {
+		row.forEach((tile, x) => {
+			drawIsoTile((y - x) * height, (y + x) * width / 4, width, height, colorMap[tile]);
+		});
+	});
+	ctx.restore();
+
 	requestAnimationFrame(render);
 }
 render();
