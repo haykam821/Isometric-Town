@@ -17,9 +17,6 @@
 		"webpack-cli": "^3.3.10"
 	},
 	"eslintConfig": {
-		"extends": "eslint-config-haykam",
-		"env": {
-			"browser": true
-		}
+		"extends": "eslint-config-haykam"
 	}
 }
