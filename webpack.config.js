@@ -1,7 +1,7 @@
 const { resolve } = require("path");
 
 module.exports = {
-	entry: "./index.js",
+	entry: "./src/index.js",
 	mode: process.env.WEBPACK_MODE || "production",
 	output: {
 		filename: "index.js",
