@@ -24,9 +24,17 @@ const colorMap = [
 	"lightgray",
 	"goldenrod",
 	"darkgoldenrod",
-	"darkgreen"
+	"darkgreen",
 ];
 
+/**
+ * Renders an individual isometric tile.
+ * @param {number} x The X position of the isometric tile.
+ * @param {number} y The Y position of the isometric tile.
+ * @param {number} width The width of the isometric tile.
+ * @param {number} height The height of the isometric tile.
+ * @param {string} color The color of the isometric tile.
+ */
 function drawIsoTile(x, y, width, height, color = "black") {
 	ctx.save();
 	ctx.beginPath();
@@ -55,8 +63,11 @@ window.addEventListener("mousemove", event => {
 		dragX -= event.movementX;
 		dragY -= event.movementY;
 	}
-})
+});
 
+/**
+ * Renders the isometric map.
+ */
 function render() {
 	ctx.fillStyle = "forestgreen";
 	ctx.fillRect(0, 0, can.width, can.height);
