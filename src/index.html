@@ -7,6 +7,11 @@
 			body {
 				margin: 0px;
 				overflow: hidden;
+				background-color: hsl(120, 61%, 30%);
+			}
+
+			* {
+				box-sizing: border-box;
 			}
 			
 			a {
@@ -24,7 +29,17 @@
 				font-weight: 500;
 				user-select: none;
 			}
-			#labelAuthor {
+			@media (max-width: 1000px) and (orientation: portrait) {
+				#label {
+					text-align: center;
+					width: 100%;
+					font-size: 6.5vw;
+					padding-top: 1vh;
+				}
+			}
+
+			#labelAuthor, #labelAuthor > a {
+				color: #eeeeee;
 				font-weight: 400;
 			}
 		</style>
