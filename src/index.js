@@ -1,4 +1,5 @@
 require("file-loader?name=[name].[ext]!html-minify-loader!./index.html");
+require("file-loader?name=[name].[ext]!./index.css");
 
 const can = document.getElementById("can");
 const ctx = can.getContext("2d");
