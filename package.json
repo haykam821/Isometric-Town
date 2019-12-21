@@ -1,4 +1,8 @@
 {
+	"name": "isometric-town",
+	"version": "1.0.0",
+	"description": "An isometric town experiment.",
+	"main": "./src/index.js",
 	"scripts": {
 		"build": "webpack --config webpack.config.js",
 		"lint": "eslint \"./**/*.js\" --ignore-path .gitignore"
@@ -18,5 +22,20 @@
 	},
 	"eslintConfig": {
 		"extends": "eslint-config-haykam"
-	}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/haykam821/Isometric-Town.git"
+	},
+	"keywords": [
+		"isometric",
+		"canvas",
+		"experiment"
+	],
+	"author": "haykam821",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/haykam821/Isometric-Town/issues"
+	},
+	"homepage": "https://github.com/haykam821/Isometric-Town#readme"
 }
