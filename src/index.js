@@ -17,7 +17,7 @@ const map = `
 0000000005000
 0000000000050
 0000000000000
-`.trim().split("\n").map(row => row.split("").reverse());
+`.trim().split("\n").map(row => [...row].reverse());
 
 const colorMap = [
 	"green",
